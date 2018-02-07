@@ -408,6 +408,7 @@ body {
 
 /* RSVP BUTTON */
 .btn {
+  display: none;
   position: fixed;
   bottom: 0;
   transform: translate(-50%, -50%);
