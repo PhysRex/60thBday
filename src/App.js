@@ -180,7 +180,8 @@ class App extends Component {
           </section>
           <div className="rsvp-row row">
             <div className="col text-center ">
-              <a href="https://goo.gl/aaG2Q6">
+              {/* <a href="https://goo.gl/aaG2Q6"> */}
+              <a href="https://mauriciocampuzano.typeform.com/to/yoogt8">
                 <button className="btn btn-warning btn-lg fadeIn">
                   {text.rsvp}
                 </button>

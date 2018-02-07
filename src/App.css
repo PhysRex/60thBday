@@ -17,7 +17,7 @@ body {
     /* url('./img/background-cream-paper.jpg'); */
 
   /* background: url('./img/background-cream-paper.jpg'); */
-  /* background: url('./img/60thBackground.png'); */
+  background: url('./img/60thBackground.png');
 }
 
 .App {
@@ -418,7 +418,6 @@ body {
 
 /* RSVP BUTTON */
 .btn {
-  display: none;
   position: fixed;
   bottom: 0;
   transform: translate(-50%, -50%);
