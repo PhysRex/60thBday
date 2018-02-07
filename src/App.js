@@ -84,101 +84,23 @@ class App extends Component {
   render() {
     const copy = {
       en: {
-        name: 'Rosemary Pena',
+        name: 'Rosemary',
         welcome: 'We kindly invite you to...',
-        body1: 'Come celebrate with us',
-        body2: '60th Birthday Bash!',
-        bodyFull: 'Come celebrate with us Rosemary Pena\'s 60th Birthday Bash!',
+        body1: 'Celebrate with us',
+        body2: '60th birthday!',
+        bodyFull: 'Celebrate with us Rosemary\'s 60th birthday!',
         date: 'Saturday, March 3rd, 2018',
-        address: '123 Main Street',
-        address2: 'Cornelius, NC 54321',
+        address: '2500 Kinmere Dr.',
+        address2: 'Gastonia, NC 28056',
         description: 'An exciting time with family and friends',
-        invitation : 'Accompany us in celebrating and in giving God thanks for six decades of life!',
-        dressCode: 'Indoor Elegant Attire',
+        invitation : 'Giving God Thanks for Six Decades of Life',
+        dressCode: 'Informal Cocktail Attire',
         rsvp: 'R.S.V.P.'
-      },
-      es: {
-        name: 'Rosemary Pena',
-        welcome: 'We are happy to invite you to join us...',
-        body: 'Please come celebrate with us Rosemary Pena\'s 60th Birthday Bash!',
-        date: 'Saturday, March 3rd, 2018',
-        address: '123 Main Street, Cornelius, NC 54321',
-        description: 'An exciting time with family and friends',
-        invitation : 'Acompáñanos a celebrar y agradecer a Dios for seis décadas de vida!',
-        dressCode: 'Indoor Elegant Attire',
-        rsvp: 'RSVP'
       }
     };
 
     const text = copy.en;
 
-    const modal = 
-      <div 
-        className={"container-fluid modal modal-hide " + (this.state.modal? "show":"")} 
-        onClick={this.showModal}>
-        {/* <div className="row modal-hide">
-          <div className="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4 modal-hide">THIS IS A MODAL
-
-            <div className="panel panel-success panel-modal">
-              <div className="panel-heading">New Recipe!</div>
-              <div className="panel-body">
-                <form className="text-left" onSubmit={this.submitRecipe}>
-                  <div className="form-group">
-                    <label htmlFor="title">Title<small className={this.state.required?"panel-req":""}>*</small>:</label>
-                    <input 
-                      type="text" 
-                      name="title" 
-                      className="form-control" 
-                      id="input-title" 
-                      placeholder="Recipe Name"
-                      value={this.state.title}
-                      onChange={this.addRecipe}/>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="description">Description:</label>
-                    <input 
-                      type="text" 
-                      name="description" 
-                      className="form-control" 
-                      id="input-description" 
-                      placeholder="Description of dish" 
-                      value={this.state.description}
-                      onChange={this.addRecipe}/>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="ingredients">Ingredients<small className={this.state.required?"panel-req":""}>*</small>:</label>
-                    <input 
-                      type="text" 
-                      name="ingredients" 
-                      className="form-control" 
-                      id="input-ingredients" 
-                      placeholder="Ingredients, separated by commas (ex: pears, honey, berries)" 
-                      value={this.state.ingredients}
-                      onChange={this.addRecipe}/>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="steps">Steps:</label>
-                    <input 
-                      type="text" 
-                      name="steps" 
-                      className="form-control" 
-                      id="input-steps" 
-                      placeholder="Steps, separated by commas (ex: slice pears, ...)" 
-                      value={this.state.steps}
-                      onChange={this.addRecipe}/>
-                    <small className={this.state.required?"panel-req":""}>*required</small>
-                  </div>
-                  <div className="btn-justify text-center">
-                    <button type="submit" className="btn btn-primary btn-pad btn-submit">Submit</button>
-                    <button type="button" className="btn btn-danger btn-pad " onClick={this.clearContents}>Reset</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-
-          </div>		
-        </div> */}
-      </div>;
 
     return (
       <div className="App">
@@ -242,12 +164,10 @@ class App extends Component {
                 <div className="addressText col-12 fadeIn">{text.address2}</div>
               </div>
               <div className="row invitationText-row">
-                <div className="col-3 desktop"></div>              
                 <div className="invitationText col fadeIn">
                   {/* <img src={backgroundRibbonPink} id="cornRedFlowers" 
                     className="invitationImg hide" alt="logo" /> */}
                   {text.invitation}</div>
-                <div className="col-3 desktop"></div>              
               </div>
               <div className="row">
                 {/* <div className="descriptionText col">{text.description}</div> */}
