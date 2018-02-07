@@ -3,7 +3,8 @@
 body {
   /* text-align: center; */
   
-  background: url('./img/texturedBackground.jpg');
+  /* background: url('./img/texturedBackground.jpg'); */
+  background: url('./img/60thBackground.png');
   /* background: url('./img/background-beige-paper-1024.jpg'); */
   /* background: url('./img/background-brown-cardboard-1024.jpg'); */
   background: 
@@ -17,6 +18,8 @@ body {
     /* url('./img/background-cream-paper.jpg'); */
 
   /* background: url('./img/background-cream-paper.jpg'); */
+  background: url('./img/60thBackground.png');
+  
 }
 
 

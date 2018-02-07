@@ -89,7 +89,7 @@ class App extends Component {
         body1: 'Celebrate with us',
         body2: '60th birthday!',
         bodyFull: 'Celebrate with us Rosemary\'s 60th birthday!',
-        date: 'Saturday, March 3rd, 2018',
+        date: 'Saturday, March 3rd, 2018 @ 4pm',
         address: '2500 Kinmere Dr.',
         address2: 'Gastonia, NC 28056',
         description: 'An exciting time with family and friends',
