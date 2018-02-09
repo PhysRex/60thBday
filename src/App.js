@@ -12,7 +12,7 @@ import backgroundGreenFabric from './img/background-green-fabric-1024.jpg';
 import backgroundSand from './img/background-tan-sand-1024.jpg';
 import backgroundTexturePaper from './img/texturedBackground.jpg';
 import backgroundRibbonPink from './img/Watercolor-pink-ribbon-flower.png';
-import backgroundMusic from "./audio/bensound-tenderness.mp3";
+import backgroundMusic from './audio/bensound-tenderness.mp3';
 import './App.css';
 
 class App extends Component {
@@ -20,17 +20,17 @@ class App extends Component {
     super(props);
     this.state = {
       loading: true,
-			modal: false, // determines whether to show modal or not
-			required: false, // determines if required class should activate w/in modal
+      modal: false, // determines whether to show modal or not
+      required: false, // determines if required class should activate w/in modal
       modalData: {
         name: '',
         attending: false,
         numberAttending: 1,
-      }
-    }
+      },
+    };
     this.music = this.music.bind(this);
   }
-	/*
+  /*
 	showModal(event) {
 		// "RSVP" button
 		 if ( this.state.modal === false ) {
@@ -50,34 +50,32 @@ class App extends Component {
   }
   */
 
-  	
-	music() {
+
+  music() {
     // console.log('PLAY MUSIC!!');
-		const sound = new Audio(backgroundMusic);
-		sound.play();
+    const sound = new Audio(backgroundMusic);
+    sound.play();
     sound.currentTime = 0;
     sound.volume = 0.2;
   }
-  
+
   componentWillMount() {
-    // this.music();
-
-    // load background music, on repeating intervals (i.e. looping)
-    // setInterval( () => {
-    //   this.music();      
-    // }, 120000);
-
+    document.addEventListener('click', () => {
+      if (this.state.touchMusic) {
+        this.music();
+        this.setState({
+          touchMusic: false,
+        });
+      }
+    });
   }
 
   componentDidMount() {
-
     // delay class for border animation
-    setTimeout( () => {
-      this.setState(
-        {
-          loading: false
-        }
-      ); 
+    setTimeout(() => {
+      this.setState({
+        loading: false,
+      });
     }, 700);
   }
 
@@ -93,10 +91,13 @@ class App extends Component {
         address: '2500 Kinmere Dr.',
         address2: 'Gastonia, NC 28056',
         description: 'An exciting time with family and friends',
-        invitation : 'Giving God Thanks for Six Decades of Life',
+        invitation: 'Giving God Thanks for Six Decades of Life',
         dressCode: 'Informal Cocktail Attire',
-        rsvp: 'R.S.V.P.'
-      }
+        rsvp: 'R.S.V.P.',
+        inviteMsg: 'A estas alturas de la vida, solo quiero salud y seguir viajando!',
+        inviteMsg2: 'Dios a sido muy bondadoso conmigo y me a dado mas de lo que esperaba.',
+        inviteMsg3: 'En este dia tan especial, mi mejor regalo será tu presencia y compañia.',
+      },
     };
 
     const text = copy.en;
@@ -105,7 +106,7 @@ class App extends Component {
     return (
       <div className="App">
         <audio autoPlay>
-          <source src={backgroundMusic}/>
+          <source src={backgroundMusic} />
         </audio>
         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -121,24 +122,31 @@ class App extends Component {
               {modal}
             </div>
           </div> */}
-          <header className="header-row row">         
-          </header>
+          <header className="header-row row" />
           <section className="img-row row">
             {/* <img src={flowersPink} id="flowerTop"
               className="flowers fades" alt="logo" /> */}
-            <img src={flowersPink} id="flowerBottom" 
-              className="flowers fadeInOpaque " alt="logo" />
-            <img src={branchesWhite} id="branchesWhite" 
-              className="flowers fadeInOpaque " alt="logo" />
-            {/* <img src={cornRedFlowers} id="cornRedFlowers" 
+            <img
+              src={flowersPink}
+              id="flowerBottom"
+              className="flowers fadeInOpaque "
+              alt="logo"
+            />
+            <img
+              src={branchesWhite}
+              id="branchesWhite"
+              className="flowers fadeInOpaque "
+              alt="logo"
+            />
+            {/* <img src={cornRedFlowers} id="cornRedFlowers"
               className="flowers fades " alt="logo" /> */}
-            {/* <img src={goldDots} id="goldDots" 
+            {/* <img src={goldDots} id="goldDots"
               className="flowers fades" alt="logo" /> */}
           </section>
           <section className="body-row row align-items-center fadeIn">
-            <div className="col-0 col-md-1 col-xl-3"></div>
-            <div className={ ((!this.state.loading) ? "invitationBorder " : "") + "col col-md-10 col-xl-6 text-center" }>
-              {/* <img src={orangeRoses} id="orangeRoses" 
+            <div className="col-0 col-md-1 col-xl-3" />
+            <div className={`${(!this.state.loading) ? 'invitationBorder ' : ''}col col-md-10 col-xl-6 text-center`}>
+              {/* <img src={orangeRoses} id="orangeRoses"
                 className="flowers fades " alt="logo" /> */}
               <div className="row">
                 <div className="welcomeText col text-left fadeIn">{text.welcome}</div>
@@ -148,26 +156,27 @@ class App extends Component {
               </div>
               <div className="row">
                 <div className="bodyText bodyTop col desktop fadeIn">{text.body1}</div>
-                <div className="col-sm-2 desktop"></div>
+                <div className="col-sm-3 desktop" />
               </div>
               <div className="row">
-                <div className="bodyText bodyMid col desktop fadeIn">{text.name + "'s"}</div>
-                <div className="col-sm-1 desktop"></div>
+                <div className="bodyText bodyMid col desktop fadeIn">{`${text.name}'s`}</div>
+                <div className="col-sm-1 desktop" />
               </div>
               <div className="row">
-                <div className="col-sm-3 desktop "></div>
+                <div className="col-sm-4 desktop " />
                 <div className="bodyText bodyBottom col desktop fadeIn">{text.body2}</div>
               </div>
               <div className="row">
-                <div className="dateText col-12 fadeIn">{text.date}</div>              
+                <div className="dateText col-12 fadeIn">{text.date}</div>
                 <div className="addressText col-12 fadeIn">{text.address}</div>
                 <div className="addressText col-12 fadeIn">{text.address2}</div>
               </div>
               <div className="row invitationText-row">
                 <div className="invitationText col fadeIn">
-                  {/* <img src={backgroundRibbonPink} id="cornRedFlowers" 
+                  {/* <img src={backgroundRibbonPink} id="cornRedFlowers"
                     className="invitationImg hide" alt="logo" /> */}
-                  {text.invitation}</div>
+                  {text.invitation}
+                </div>
               </div>
               <div className="row">
                 {/* <div className="descriptionText col">{text.description}</div> */}
@@ -175,21 +184,58 @@ class App extends Component {
               <div className="row">
                 <div className="dressCodeText col fadeIn">{text.dressCode}</div>
               </div>
+              <div className="row">
+                <div className="col-2" />
+                <div className="col line-break fadeIn" />
+                <div className="col-2" />
+              </div>
+              <div className="row">
+                <div className="col bGift fadeIn">My birthday gift:</div>
+              </div>
+              <div className="row">
+                {/* <div className="col-1 col-md-0 col-lg-1"></div> */}
+                <div className="inviteMsg col fadeIn">
+                "{text.inviteMsg}
+                </div>
+                {/* <div className="col-1 col-md-0 col-lg-1"></div> */}
+              </div>
+              <div className="row">
+                {/* <div className="col-1 col-md-0 col-lg-1"></div> */}
+                <div className="inviteMsg col fadeIn">
+                  {text.inviteMsg2}
+                </div>
+                {/* <div className="col-1 col-md-0 col-lg-1"></div> */}
+              </div>
+              <div className="row">
+                {/* <div className="col-1 col-md-0 col-lg-1"></div> */}
+                <div className="inviteMsg col fadeIn">
+                  {text.inviteMsg3}"
+                </div>
+                {/* <div className="col-1 col-md-0 col-lg-1"></div> */}
+              </div>
+              <div className="row">
+                <div className="col-3" />
+                <div className="col text-right citeText fadeIn">
+                  <cite>- Ross</cite>
+                </div>
+                <div className="col-3" />
+              </div>
+
             </div>
-            <div className="col-0 col-md-1 col-xl-3"></div>
+            <div className="col-0 col-md-1 col-xl-3" />
           </section>
           <div className="rsvp-row row">
             <div className="col text-center ">
               {/* <a href="https://goo.gl/aaG2Q6"> */}
-              <a href="https://mauriciocampuzano.typeform.com/to/yoogt8">
-                <button className="btn btn-warning btn-lg fadeIn">
-                  {text.rsvp}
-                </button>
-              </a>
+              {/* <a href="https://mauriciocampuzano.typeform.com/to/yoogt8"> */}
+              <button className="btn btn-warning btn-lg fadeIn">
+                {text.rsvp} by Feb 15
+                <div>at <span className="btn-span">914.320.4423</span></div>
+              </button>
+              {/* </a> */}
             </div>
           </div>
-          <footer className="footer-row row">
-          </footer>
+          <footer className="footer-row row" />
         </div>
 
         {/* <Confetti/> */}
@@ -204,7 +250,7 @@ class Confetti extends Component {
   // https://codepen.io/jscottsmith/pen/VjPaLO?editors=0010
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       DECAY: 4, // confetti decay in seconds
       SPREAD: 60, // degrees to spread from the angle of the cannon
       GRAVITY: 1200
@@ -227,8 +273,8 @@ class Confetti extends Component {
   }
 
   // some constants
-  const DECAY = 4;        
-  const SPREAD = 60;      
+  const DECAY = 4;
+  const SPREAD = 60;
   const GRAVITY = 1200;
 
   class ConfettiCannon {
@@ -242,19 +288,19 @@ class Confetti extends Component {
         // add confetti here
         this.confettiSpriteIds = [];
         this.confettiSprites = {};
-        
+
         // vector line representing the firing angle
         this.drawVector = false;
         this.vector = [{
-            x: window.innerWidth, 
+            x: window.innerWidth,
             y: window.innerHeight * 1.25,
         }, {
-            x: window.innerWidth, 
+            x: window.innerWidth,
             y: window.innerHeight * 2,
         }];
-        
+
         this.pointer = {};
-        
+
         // bind methods
         this.render = this.render.bind(this);
         this.handleMousedown = this.handleMousedown.bind(this);
@@ -263,18 +309,18 @@ class Confetti extends Component {
         this.handleTouchstart = this.handleTouchstart.bind(this);
         this.handleTouchmove = this.handleTouchmove.bind(this);
         this.setCanvasSize = this.setCanvasSize.bind(this);
-        
+
         this.setupListeners();
         this.setCanvasSize();
-        
+
         // fire off for a demo
         this.timer = setTimeout(this.handleMouseup, 1000);
     }
-    
+
     setupListeners() {
         // Use TweenLite tick event for the render loop
         TweenLite.ticker.addEventListener('tick', this.render);
-        
+
         // bind events
         window.addEventListener('mousedown', this.handleMousedown);
         window.addEventListener('mouseup', this.handleMouseup);
@@ -291,19 +337,19 @@ class Confetti extends Component {
         this.canvas.style.width = window.innerWidth + 'px';
         this.canvas.style.height = window.innerHeight + 'px';
     }
-    
+
     handleMousedown(event) {
         clearTimeout(this.timer);
         const x = event.clientX * this.dpr;
         const y = event.clientY * this.dpr;
-        
+
         this.vector[0] = {
             x,
             y,
         };
         this.drawVector = true;
     }
-    
+
     handleTouchstart(event) {
         clearTimeout(this.timer);
         event.preventDefault();
@@ -313,18 +359,18 @@ class Confetti extends Component {
             x,
             y,
         };
-        
+
         this.drawVector = true;
     }
-    
+
     handleMouseup(event) {
         this.drawVector = false;
-        
+
         const x0 = this.vector[0].x;
         const y0 = this.vector[0].y;
         const x1 = this.vector[1].x;
         const y1 = this.vector[1].y;
-        
+
         const length = getLength(x0, y0, x1, y1);
         const angle = getDegAngle(x0, y0, x1, y1) + 180;
 
@@ -332,37 +378,37 @@ class Confetti extends Component {
         const velocity = length * 10;
         this.addConfettiParticles(particles, angle, velocity, x0, y0);
     }
-    
+
     handleMousemove(event) {
         const x = event.clientX * this.dpr;
-        const y = event.clientY * this.dpr;   
+        const y = event.clientY * this.dpr;
         this.vector[1] = {
             x,
             y,
         };
         this.pointer = this.vector[1];
     }
-    
+
     handleTouchmove(event) {
         event.preventDefault();
         const x = event.changedTouches[0].clientX * this.dpr;
-        const y = event.changedTouches[0].clientY * this.dpr;   
+        const y = event.changedTouches[0].clientY * this.dpr;
         this.vector[1] = {
             x,
             y,
         };
         this.pointer = this.vector[1];
     }
-    
+
     drawVectorLine() {
         this.ctx.strokeStyle = 'pink';
         this.ctx.lineWidth = 2 * this.dpr;
-        
+
         const x0 = this.vector[0].x;
         const y0 = this.vector[0].y;
         const x1 = this.vector[1].x;
         const y1 = this.vector[1].y;
-        
+
         this.ctx.beginPath();
         this.ctx.moveTo(x0, y0);
         this.ctx.lineTo(x1, y1);
@@ -375,12 +421,12 @@ class Confetti extends Component {
             // sprite
             const r = _.random(4, 6) * this.dpr;
             const d = _.random(15, 25) * this.dpr;
-            
+
             const cr = _.random(30, 255);
             const cg = _.random(30, 230);
             const cb = _.random(30, 230);
             const color = `rgb(${cr}, ${cg}, ${cb})`;
-            
+
             const tilt = _.random(10, -10);
             const tiltAngleIncremental = _.random(0.07, 0.05);
             const tiltAngle = 0;
@@ -411,7 +457,7 @@ class Confetti extends Component {
     tweenConfettiParticle(id) {
         const minAngle = this.confettiSprites[id].angle - SPREAD / 2;
         const maxAngle = this.confettiSprites[id].angle + SPREAD / 2;
-        
+
         const minVelocity = this.confettiSprites[id].velocity / 4;
         const maxVelocity = this.confettiSprites[id].velocity;
 
@@ -441,9 +487,9 @@ class Confetti extends Component {
 
     updateConfettiParticle(id) {
         const sprite = this.confettiSprites[id];
-        
+
         const tiltAngle = 0.0005 * sprite.d;
-        
+
         sprite.angle += 0.01;
         sprite.tiltAngle += tiltAngle;
         sprite.tiltAngle += sprite.tiltAngleIncremental;
@@ -455,7 +501,7 @@ class Confetti extends Component {
     drawConfetti() {
         this.confettiSpriteIds.map(id => {
             const sprite = this.confettiSprites[id];
-            
+
             this.ctx.beginPath();
             this.ctx.lineWidth = sprite.d / 2;
             this.ctx.strokeStyle = sprite.color;
@@ -466,7 +512,7 @@ class Confetti extends Component {
             this.updateConfettiParticle(id);
         });
     }
-    
+
     drawPointer() {
         const centerX = this.pointer.x;
         const centerY = this.pointer.y;
@@ -480,13 +526,13 @@ class Confetti extends Component {
         this.ctx.strokeStyle = '#ffffff';
         this.ctx.stroke();
     }
-    
+
     drawPower() {
         const x0 = this.vector[0].x;
         const y0 = this.vector[0].y;
         const x1 = this.vector[1].x;
         const y1 = this.vector[1].y;
-        
+
         const length = getLength(x0, y0, x1, y1);
         const centerX = x0;
         const centerY = y0;
@@ -503,11 +549,11 @@ class Confetti extends Component {
 
     render() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        
+
         // only draw the vector when the drawVector flag is on
         this.drawVector && this.drawVectorLine();
         this.drawVector && this.drawPower();
-        
+
         this.drawPointer();
         this.drawConfetti();
     }
@@ -519,7 +565,7 @@ class Confetti extends Component {
   render() {
     return (
       <div>
-  
+
       </div>
     );
   }
