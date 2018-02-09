@@ -94,9 +94,9 @@ class App extends Component {
         invitation: 'Giving God Thanks for Six Decades of Life',
         dressCode: 'Informal Cocktail Attire',
         rsvp: 'R.S.V.P.',
-        inviteMsg: 'A estas alturas de la vida, solo quiero salud y seguir viajando!',
-        inviteMsg2: 'Dios a sido muy bondadoso conmigo y me a dado mas de lo que esperaba.',
-        inviteMsg3: 'En este dia tan especial, mi mejor regalo será tu presencia y compañia.',
+        inviteMsg: 'A estas alturas de mi vida, solo quiero salud y seguir viajando!',
+        inviteMsg2: 'Dios a sido muy bondadoso conmigo y me a dado más de lo que esperaba.',
+        inviteMsg3: 'Es así que, en este día tan especial, mi mejor regalo será tu presencia y compañia.',
       },
     };
 
@@ -190,7 +190,7 @@ class App extends Component {
                 <div className="col-2" />
               </div>
               <div className="row">
-                <div className="col bGift fadeIn">My birthday gift:</div>
+                <div className="col bGift fadeIn">A birthday gift:</div>
               </div>
               <div className="row">
                 {/* <div className="col-1 col-md-0 col-lg-1"></div> */}
