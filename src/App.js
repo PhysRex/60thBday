@@ -94,8 +94,8 @@ class App extends Component {
         invitation: 'Giving God Thanks for Six Decades of Life',
         dressCode: 'Informal Cocktail Attire',
         rsvp: 'R.S.V.P.',
-        inviteMsg: 'A estas alturas de mi vida, solo quiero salud y seguir viajando!',
-        inviteMsg2: 'Dios a sido muy bondadoso conmigo y me a dado más de lo que esperaba.',
+        inviteMsg: 'Dios a sido muy bondadoso conmigo y me a dado más de lo que hubiera imaginado.',
+        inviteMsg2: 'A estas alturas de mi vida, solo quiero salud y seguir viajando!',
         inviteMsg3: 'Es así que, en este día tan especial, mi mejor regalo será tu presencia y compañia.',
       },
     };
@@ -227,12 +227,12 @@ class App extends Component {
           <div className="rsvp-row row">
             <div className="col text-center ">
               {/* <a href="https://goo.gl/aaG2Q6"> */}
-              {/* <a href="https://mauriciocampuzano.typeform.com/to/yoogt8"> */}
-              <button className="btn btn-warning btn-lg fadeIn">
-                {text.rsvp} by Feb 15
-                <div>at <span className="btn-span">914.320.4423</span></div>
-              </button>
-              {/* </a> */}
+              <a href="https://mauriciocampuzano.typeform.com/to/iuXtZw">
+                <button className="btn btn-warning btn-lg fadeIn">
+                  {text.rsvp}
+                  <div><span className="btn-span">here by Feb 15</span></div>
+                </button>
+              </a>
             </div>
           </div>
           <footer className="footer-row row" />
