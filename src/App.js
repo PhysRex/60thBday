@@ -94,7 +94,7 @@ class App extends Component {
         invitation: 'Giving God Thanks for Six Decades of Life',
         dressCode: 'Informal Cocktail Attire',
         rsvp: 'R.S.V.P.',
-        inviteMsg: 'Dios a sido muy bondadoso conmigo y me a dado más de lo que hubiera imaginado.',
+        inviteMsg: 'Dios ha sido muy bondadoso conmigo y me ha dado más de lo que hubiera imaginado.',
         inviteMsg2: 'A estas alturas de mi vida, solo quiero salud y seguir viajando!',
         inviteMsg3: 'Es así que, en este día tan especial, mi mejor regalo será tu presencia y compañia.',
       },
